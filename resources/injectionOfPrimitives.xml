@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="buldog" class="com.netcracker.injectionOfPrimitives.Dog" scope="prototype">
+        <constructor-arg ref="pawsAnimal"/>
+        <constructor-arg value="1000"/>
+    </bean>
+
+    <bean id="ovcharca" class="com.netcracker.injectionOfPrimitives.Dog" scope="prototype">
+        <constructor-arg ref="tailsAnimals"/>
+        <constructor-arg value="1500"/>
+    </bean>
+
+    <bean id="pers" class="com.netcracker.injectionOfPrimitives.Cat" scope="prototype">
+        <property name="Animal" ref="pawsAnimal"/>
+        <property name="animal" value="10"/>
+    </bean>
+
+    <bean id="nePers" class="com.netcracker.injectionOfPrimitives.Cat" scope="prototype">
+        <property name="Animal" ref="tailsAnimals"/>
+        <property name="animal" value="10"/>
+    </bean>
+
+    <bean id="pawsAnimal" class="com.netcracker.injectionOfPrimitives.pawsAnimal" scope="prototype"/>
+    <bean id="tailsAnimals" class="com.netcracker.injectionOfPrimitives.tailsAnimals" scope="prototype"/>
+
+</beans>

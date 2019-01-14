@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="bookList" class="com.netcracker.injectionOfCollections.constructorDI.BookList" scope="prototype">
+        <constructor-arg>
+            <list>
+                <ref bean="book"/>
+                <ref bean="book1"/>
+                <ref bean="book2"/>
+            </list>
+        </constructor-arg>
+    </bean>
+
+    <bean id="bookSet" class="com.netcracker.injectionOfCollections.constructorDI.BookSet" scope="prototype">
+        <constructor-arg>
+            <set>
+                <ref bean="book"/>
+                <ref bean="book1"/>
+                <ref bean="book2"/>
+            </set>
+        </constructor-arg>
+    </bean>
+
+    <bean id="bookMap" class="com.netcracker.injectionOfCollections.constructorDI.BookMap" scope="prototype">
+        <constructor-arg>
+            <map>
+                <entry key="Name1" value="150"/>
+                <entry key="Name2" value="70"/>
+                <entry key="Name3" value="130"/>
+            </map>
+        </constructor-arg>
+    </bean>
+
+    <bean id="bookList1" class="com.netcracker.injectionOfCollections.setterDI.BookList" scope="prototype">
+        <property name="bookList">
+            <list>
+                <ref bean="book"/>
+                <ref bean="book1"/>
+                <ref bean="book2"/>
+            </list>
+        </property>
+    </bean>
+
+    <bean id="bookSet1" class="com.netcracker.injectionOfCollections.setterDI.BookSet" scope="prototype">
+        <property name="bookSet">
+            <set>
+                <ref bean="book"/>
+                <ref bean="book1"/>
+                <ref bean="book2"/>
+            </set>
+        </property>
+    </bean>
+    <bean>
+    </bean>
+
+    <bean id="bookMap1" class="com.netcracker.injectionOfCollections.setterDI.BookMap" scope="prototype">
+        <property name="bookMap">
+            <map>
+                <entry key="book" value="200"/>
+                <entry key="book1" value="200"/>
+                <entry key="book2" value="200"/>
+            </map>
+        </property>
+    </bean>
+
+    <bean id="book1" class="com.netcracker.injectionOfCollections.Book" scope="prototype">
+        <constructor-arg value="Name1"/>
+        <constructor-arg value="14"/>
+        <constructor-arg value="author1"/>
+    </bean>
+    <bean id="book2" class="com.netcracker.injectionOfCollections.Book" scope="prototype">
+        <constructor-arg value="Name2"/>
+        <constructor-arg value="150"/>
+        <constructor-arg value="author2"/>
+    </bean>
+    <bean id="book" class="com.netcracker.injectionOfCollections.Book" scope="prototype">
+        <constructor-arg value="name3"/>
+        <constructor-arg value="2000"/>
+        <constructor-arg value="author3"/>
+    </bean>
+
+
+</beans>
